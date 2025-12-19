@@ -1,152 +1,232 @@
-/* Custom styles for Bootstrap 5 implementation */
-
-/* Logo styling */
-.logo {
-    background-color: #e9ecef;
-    font-weight: bold;
-    padding: 10px;
-    text-align: center;
-    border-radius: 4px;
-}
-
-/* Image map container */
-.image-map-container {
-    position: relative;
-    display: inline-block;
-    margin: 10px 0;
-}
-
-.area-highlight {
-    border: 2px dashed blue;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-/* Table improvements */
-#data-table th {
-    background-color: #f8f9fa;
-    font-weight: 600;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-#data-table td, #data-table th {
-    vertical-align: middle;
+.container {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
 }
 
-/* Form improvements */
-#main-form .form-check {
-    margin-bottom: 0.5rem;
+h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-#main-form .form-label {
+.gallery-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.gallery {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.gallery-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+/* ВАЖНО: ширина каждого элемента должна быть 100% / itemsPerView */
+.gallery-item {
+    flex: 0 0 33.333%; /* По умолчанию 3 изображения */
+    padding: 15px;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.gallery-item img:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item p {
+    margin-top: 10px;
+    color: #34495e;
     font-weight: 500;
+    font-size: 1.1rem;
 }
 
-/* Card enhancements */
-.card {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    border: 1px solid rgba(0, 0, 0, 0.125);
+.nav-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
 }
 
-.card-title {
-    color: #495057;
-    border-bottom: 1px solid #e9ecef;
-    padding-bottom: 0.75rem;
-    margin-bottom: 1rem;
+.nav-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
 }
 
-/* List group item enhancements */
-.list-group-item {
-    border-left: none;
-    border-right: none;
+.nav-btn:active {
+    transform: scale(0.95);
 }
 
-.list-group-item:first-child {
-    border-top: none;
-}
-
-.list-group-item:last-child {
-    border-bottom: none;
-}
-
-/* Navigation improvements */
-.navbar-toggler {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.navbar-toggler:focus {
+.nav-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
     box-shadow: none;
 }
 
-.nav-link {
-    font-weight: 500;
-    transition: color 0.15s ease-in-out;
+.pager {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.nav-link:hover {
-    color: #0056b3;
+.pager-info {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive table */
-.table-responsive {
-    border-radius: 0.375rem;
-    overflow: hidden;
+.current-page {
+    font-weight: bold;
+    color: #e74c3c;
 }
 
-/* Form select multiple */
-.form-select[multiple] {
-    height: auto;
-    min-height: 120px;
+.total-pages {
+    font-weight: bold;
+    color: #3498db;
 }
 
-/* Button enhancements */
-.btn-primary {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-    transition: all 0.15s ease-in-out;
+.pager-dots {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.btn-primary:hover {
-    background-color: #0b5ed7;
-    border-color: #0a58ca;
-    transform: translateY(-1px);
+.pager-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #bdc3c7;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Footer styling */
-footer {
-    margin-top: auto;
+.pager-dot:hover {
+    background-color: #7f8c8d;
+    transform: scale(1.2);
 }
 
-/* Custom spacing for better mobile experience */
+.pager-dot.active {
+    background-color: #3498db;
+    transform: scale(1.3);
+}
+
+.instructions {
+    margin-top: 30px;
+    color: #7f8c8d;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Адаптивность для планшетов (2 изображения) */
+@media (max-width: 992px) {
+    .gallery-item {
+        flex: 0 0 50% !important; /* 2 изображения */
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-btn {
+        width: 45px;
+        height: 45px;
+        margin: 0 15px;
+    }
+}
+
+/* Адаптивность для мобильных устройств (1 изображение) */
 @media (max-width: 768px) {
-    .card-body {
-        padding: 1rem;
+    .gallery-item {
+        flex: 0 0 100% !important; /* 1 изображение */
     }
     
-    .list-group-item {
-        padding: 0.75rem 0.5rem;
+    h1 {
+        font-size: 1.8rem;
     }
     
-    .navbar-nav {
-        text-align: center;
+    .gallery-container {
+        margin-bottom: 20px;
     }
     
-    .nav-item {
-        border-bottom: 1px solid #e9ecef;
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        margin: 0 10px;
     }
     
-    .nav-item:last-child {
-        border-bottom: none;
-    }
-}
-
-/* Print styles */
-@media print {
-    .navbar-toggler,
-    .btn-primary {
-        display: none;
+    .gallery-item img {
+        height: 250px;
     }
     
-    .card {
-        border: 1px solid #000;
-        box-shadow: none;
+    .pager-info {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+    
+    .instructions {
+        font-size: 0.9rem;
+        padding: 12px;
     }
 }
